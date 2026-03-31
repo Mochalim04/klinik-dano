@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Klinik Dano Sumedang – Klinik Pratama</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --biru:#1a3f6f;
+  --biru-mid:#1d5fa8;
+  --biru-terang:#e8f2fb;
+  --biru-soft:#f0f6ff;
+  --aksen:#e8972a;
+  --aksen-hover:#d4831e;
+  --teks:#1a2c42;
+  --teks-muda:#5a7080;
+  --border:#e0eaf4;
+  --putih:#ffffff;
+  --abu:#f4f7fb;
+  --dark-footer:#1a2535;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:var(--teks);background:var(--putih);overflow-x:hidden;font-size:15px}
+
+/* ── NAV ── */
+nav{background:#fff;border-bottom:1px solid var(--border);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:300;box-shadow:0 1px 12px rgba(0,0,0,.06)}
+.nav-logo img{height:28px;width:auto;display:block}
+.nav-logo-text{font-family:'Merriweather',serif;font-size:1.1rem;font-weight:900;color:var(--biru);display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-bubble{background:linear-gradient(135deg,#1d9af0,#0a5494);border-radius:12px;padding:6px 10px;display:flex;align-items:center;justify-content:center}
+.logo-bubble span{font-size:1.15rem;color:#fff;font-family:'Nunito',sans-serif;font-weight:800;letter-spacing:.5px}
+.logo-label{display:flex;flex-direction:column;line-height:1.15}
+.logo-label strong{color:var(--biru);font-size:.98rem;font-family:'Nunito',sans-serif;font-weight:800}
+.logo-label small{color:var(--teks-muda);font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.nav-menu{display:flex;gap:2px;list-style:none}
+.nav-menu a{text-decoration:none;color:var(--teks);font-size:.88rem;font-weight:600;padding:7px 14px;border-radius:8px;transition:.2s;display:block}
+.nav-menu a:hover,.nav-menu a.active{color:var(--biru-mid);background:var(--biru-terang)}
+.btn-buat-janji{background:var(--aksen);color:#fff!important;border-radius:100px!important;padding:9px 22px!important;display:inline-flex!important;align-items:center;gap:6px;font-weight:700!important}
+.btn-buat-janji:hover{background:var(--aksen-hover)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--biru);border-radius:2px;transition:.3s}
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--biru);overflow:hidden;padding:9px 0}
+.ticker-track{display:flex;gap:48px;white-space:nowrap;animation:ticker 28s linear infinite;width:max-content}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.ticker-dot{width:6px;height:6px;background:var(--aksen);border-radius:50%;flex-shrink:0}
+
+/* ── HERO ── */
+#beranda{background:linear-gradient(160deg,#f0f6ff 0%,#e8f2fb 50%,#f8fbff 100%);padding:80px 6% 70px;min-height:90vh;display:flex;align-items:center}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1200px;margin:0 auto;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);padding:6px 16px;border-radius:100px;font-size:.75rem;font-weight:700;color:var(--biru-mid);margin-bottom:22px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.hero-badge::before{content:'';width:7px;height:7px;background:#22c55e;border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{font-family:'Merriweather',serif;font-size:clamp(2rem,3.2vw,2.8rem);font-weight:900;line-height:1.2;color:var(--biru);margin-bottom:18px}
+.hero-h1 em{font-style:italic;color:var(--aksen)}
+.hero-desc{font-size:.96rem;color:var(--teks-muda);line-height:1.8;margin-bottom:34px;max-width:460px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.btn-aksen{background:var(--aksen);color:#fff;padding:13px 28px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.9rem;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-aksen:hover{background:var(--aksen-hover)}
+.btn-outline-biru{border:2px solid var(--biru-mid);color:var(--biru-mid);padding:13px 28px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.9rem;transition:.2s}
+.btn-outline-biru:hover{background:var(--biru-mid);color:#fff}
+.hero-stats{display:flex;gap:28px}
+.h-stat{text-align:center}
+.h-stat .num{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:var(--biru)}
+.h-stat .lbl{font-size:.72rem;color:var(--teks-muda);font-weight:600;margin-top:2px}
+.h-divider{width:1px;background:var(--border)}
+
+/* Hero right */
+.hero-right{position:relative;z-index:1}
+.hero-img-wrap{border-radius:24px;overflow:hidden;background:linear-gradient(135deg,#dbeeff,#c2daf7);height:400px;display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative;z-index:1}
+.hero-float{position:absolute;top:-14px;right:-14px;background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 4px 20px rgba(0,0,0,.1);text-align:center;z-index:3}
+.hero-img-badge{position:absolute;bottom:20px;left:20px;background:#fff;border-radius:14px;padding:12px 18px;box-shadow:0 4px 20px rgba(0,0,0,.1);display:flex;align-items:center;gap:10px;z-index:2}
+.hero-img-badge .icon{width:36px;height:36px;background:var(--biru-terang);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.hero-img-badge .txt strong{display:block;font-size:.85rem;font-weight:700;color:var(--teks)}
+.hero-img-badge .txt span{font-size:.72rem;color:var(--teks-muda)}
+.hero-float{position:absolute;top:-14px;right:-14px;background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 4px 20px rgba(0,0,0,.1);text-align:center}
+.hero-float .ef{font-family:'Merriweather',serif;font-size:1.4rem;font-weight:900;color:var(--biru)}
+.hero-float .el{font-size:.7rem;color:var(--teks-muda);font-weight:600}
+
+/* ── LAYANAN ── */
+#layanan{background:var(--abu);padding:90px 6%}
+.container{max-width:1200px;margin:0 auto}
+.sec-label{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--biru-mid);margin-bottom:10px}
+.sec-title{font-family:'Merriweather',serif;font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:900;color:var(--teks);line-height:1.25;margin-bottom:12px}
+.sec-sub{color:var(--teks-muda);font-size:.92rem;line-height:1.75;max-width:520px}
+.sec-header{margin-bottom:52px}
+.sec-header.center{text-align:center}
+.sec-header.center .sec-sub{margin:0 auto}
+
+/* Layanan list style */
+.layanan-list{display:flex;flex-direction:column;gap:20px}
+.lay-row{background:#fff;border-radius:20px;overflow:hidden;display:grid;align-items:stretch;border:1px solid var(--border);transition:.25s}
+.lay-row:hover{box-shadow:0 12px 40px rgba(26,63,111,.09)}
+.lay-row.img-left{grid-template-columns:1fr 1fr}
+.lay-row.img-right{grid-template-columns:1fr 1fr}
+.lay-img{background:linear-gradient(135deg,#dbeeff,#b8d4f2);display:flex;align-items:center;justify-content:center;font-size:5rem;min-height:260px;position:relative;overflow:hidden}
+.lay-img.green{background:linear-gradient(135deg,#d4edda,#a8d5b5)}
+.lay-img.amber{background:linear-gradient(135deg,#fef3cd,#f8d78b)}
+.lay-img.purple{background:linear-gradient(135deg,#e8e0f7,#c8b8ec)}
+.lay-body{padding:44px 48px;display:flex;flex-direction:column;justify-content:center}
+.lay-cat{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--biru-mid);margin-bottom:10px}
+.lay-body h3{font-family:'Merriweather',serif;font-size:1.6rem;font-weight:900;color:var(--teks);margin-bottom:12px;line-height:1.25}
+.lay-body p{font-size:.9rem;color:var(--teks-muda);line-height:1.75;margin-bottom:20px}
+.lay-features{display:grid;grid-template-columns:1fr 1fr;gap:7px 24px;margin-bottom:24px}
+.lay-features li{list-style:none;font-size:.84rem;color:var(--teks-muda);display:flex;align-items:center;gap:8px}
+.lay-features li::before{content:'●';color:var(--biru-mid);font-size:.5rem;flex-shrink:0}
+.lay-link{color:var(--biru-mid);font-weight:700;font-size:.86rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:.2s}
+.lay-link:hover{gap:10px}
+
+/* ── DOKTER ── */
+#dokter{background:#fff;padding:90px 6%}
+.dokter-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:52px}
+.dokter-card{background:var(--abu);border:1px solid var(--border);border-radius:18px;padding:24px;transition:.2s}
+.dokter-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(26,63,111,.08)}
+.dk-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.dk-avatar{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#c2daf7,#9ec4f0);display:flex;align-items:center;justify-content:center;font-family:'Merriweather',serif;font-size:1.1rem;font-weight:900;color:var(--biru);flex-shrink:0}
+.dk-info h3{font-size:.93rem;font-weight:700;color:var(--teks);line-height:1.35;margin-bottom:5px}
+.dk-role{display:inline-flex;align-items:center;gap:5px;background:var(--biru-terang);color:var(--biru-mid);font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:100px}
+.dk-meta{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.dk-meta-item{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--teks-muda)}
+.dk-meta-item .mi{font-size:.9rem;width:16px;text-align:center}
+.dk-tags{display:flex;flex-wrap:wrap;gap:6px}
+.dk-tag{background:#fff;border:1px solid var(--border);border-radius:100px;padding:3px 11px;font-size:.72rem;color:var(--teks-muda);font-weight:600;display:flex;align-items:center;gap:4px}
+.dk-tag::before{content:'♡';font-size:.65rem;color:var(--aksen)}
+
+/* Jadwal tabel */
+.jadwal-wrap{background:var(--abu);border-radius:20px;padding:36px;overflow-x:auto}
+.jadwal-wrap h3{font-family:'Merriweather',serif;font-size:1.1rem;font-weight:900;color:var(--teks);margin-bottom:22px}
+table{width:100%;border-collapse:collapse;font-size:.84rem;min-width:500px}
+thead tr{background:var(--biru);color:#fff}
+thead th{padding:12px 16px;text-align:left;font-weight:700;font-size:.78rem;letter-spacing:.03em}
+tbody tr{border-bottom:1px solid var(--border)}
+tbody tr:hover{background:var(--biru-terang)}
+td{padding:10px 16px;vertical-align:middle}
+td:first-child{font-weight:700;color:var(--biru);white-space:nowrap}
+.badge-d{display:inline-block;background:var(--biru-terang);color:var(--biru-mid);padding:3px 10px;border-radius:100px;font-size:.76rem;font-weight:700}
+
+/* ── BPJS ── */
+#bpjs{padding:0 6% 90px}
+.bpjs-box{background:linear-gradient(135deg,var(--biru) 0%,var(--biru-mid) 100%);border-radius:24px;padding:64px 60px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.bpjs-box::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:rgba(255,255,255,.04);border-radius:50%}
+.bpjs-box::after{content:'';position:absolute;bottom:-80px;left:-40px;width:200px;height:200px;background:rgba(255,255,255,.03);border-radius:50%}
+.bpjs-box .sec-label{color:rgba(255,255,255,.7)}
+.bpjs-box .sec-title{color:#fff;font-size:clamp(1.5rem,2.5vw,2rem);margin-bottom:12px}
+.bpjs-sub{color:rgba(255,255,255,.8);font-size:.92rem;line-height:1.7;margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto}
+.bpjs-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative;z-index:1}
+.bpjs-step{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:28px 24px;text-align:left;position:relative}
+.step-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.step-icon{width:42px;height:42px;background:var(--aksen);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.step-num{font-size:1.1rem;font-weight:800;color:rgba(255,255,255,.4)}
+.step-arrow{position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.3);font-size:1.2rem;z-index:2}
+.bpjs-step h4{font-size:.95rem;font-weight:800;color:#fff;margin-bottom:8px}
+.bpjs-step p{font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.65}
+
+/* ── CTA BANNER ── */
+.cta-banner{margin:0 6%;border-radius:22px;overflow:hidden;background:linear-gradient(135deg,#2a3f5a 0%,#1a2c42 100%);padding:60px;display:flex;align-items:center;justify-content:space-between;gap:32px;position:relative}
+.cta-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")}
+.cta-text{color:#fff}
+.cta-mini{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:6px;margin-bottom:12px}
+.cta-mini::before{content:'⏰';font-size:.85rem}
+.cta-text h2{font-family:'Merriweather',serif;font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:900;line-height:1.3;margin-bottom:10px}
+.cta-text p{color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.65}
+
+/* ── APOTEK ── */
+#apotek{background:var(--abu);padding:90px 6%}
+.apotek-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.apotek-img{border-radius:22px;overflow:hidden;background:linear-gradient(135deg,#dbeeff,#b8d4f2);min-height:380px;display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative}
+.apotek-jam-badge{position:absolute;bottom:20px;left:20px;background:#fff;border-radius:12px;padding:12px 18px;box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.apotek-jam-badge p{font-size:.75rem;color:var(--teks-muda);font-weight:600;margin-bottom:2px}
+.apotek-jam-badge strong{font-size:.95rem;color:var(--teks);font-weight:800}
+.apotek-feats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.apo-feat{display:flex;gap:12px;align-items:flex-start}
+.apo-icon{width:38px;height:38px;min-width:38px;background:var(--biru-terang);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.apo-text h4{font-size:.86rem;font-weight:700;color:var(--teks);margin-bottom:3px}
+.apo-text p{font-size:.78rem;color:var(--teks-muda);line-height:1.55}
+
+/* ── TESTIMONI ── */
+#testimoni{background:#fff;padding:90px 6%}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:var(--abu);border:1px solid var(--border);border-radius:18px;padding:28px}
+.testi-quote{font-size:2.2rem;color:var(--border);font-family:Georgia,serif;line-height:1;margin-bottom:14px}
+.testi-card p{font-size:.88rem;color:var(--teks);line-height:1.75;margin-bottom:20px}
+.testi-footer{display:flex;align-items:center;justify-content:space-between}
+.testi-author strong{display:block;font-size:.85rem;font-weight:700;color:var(--teks)}
+.testi-author span{font-size:.75rem;color:var(--teks-muda)}
+.stars{color:var(--aksen);font-size:.9rem;letter-spacing:1px}
+
+/* ── SIAP CTA ── */
+#siap{background:var(--biru);padding:72px 6%;text-align:center}
+#siap h2{font-family:'Merriweather',serif;font-size:clamp(1.5rem,2.4vw,2rem);font-weight:900;color:#fff;margin-bottom:10px}
+#siap p{color:rgba(255,255,255,.75);font-size:.92rem;margin-bottom:32px}
+.btn-aksen-lg{background:var(--aksen);color:#fff;padding:15px 40px;border-radius:100px;text-decoration:none;font-weight:800;font-size:.98rem;transition:.2s;display:inline-flex;align-items:center;gap:10px}
+.btn-aksen-lg:hover{background:var(--aksen-hover)}
+
+/* ── KONTAK ── */
+#kontak{background:var(--abu);padding:90px 6%}
+.kontak-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.kontak-form-box{background:#fff;border-radius:20px;padding:36px;border:1px solid var(--border)}
+.kontak-form-box h3{font-family:'Merriweather',serif;font-size:1.1rem;font-weight:900;color:var(--teks);margin-bottom:22px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:.8rem;font-weight:700;color:var(--teks-muda);margin-bottom:7px}
+.fg input,.fg textarea,.fg select{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:11px 14px;font-family:'Nunito',sans-serif;font-size:.88rem;color:var(--teks);outline:none;transition:.2s;background:#fff}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--biru-mid);box-shadow:0 0 0 3px rgba(29,95,168,.08)}
+.fg textarea{resize:vertical;min-height:100px}
+.btn-submit{width:100%;background:var(--aksen);color:#fff;padding:14px;border-radius:12px;border:none;font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-submit:hover{background:var(--aksen-hover)}
+.kontak-note{text-align:center;font-size:.76rem;color:var(--teks-muda);margin-top:10px}
+
+.kontak-info{display:flex;flex-direction:column;gap:16px}
+.k-card{background:#fff;border-radius:14px;padding:20px;border:1px solid var(--border);display:flex;gap:14px;align-items:flex-start}
+.k-icon{width:42px;height:42px;min-width:42px;background:var(--biru-terang);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.k-text h4{font-size:.78rem;color:var(--teks-muda);font-weight:600;margin-bottom:4px}
+.k-text p,.k-text a{font-size:.9rem;font-weight:700;color:var(--teks);line-height:1.5;text-decoration:none}
+.k-text a{color:var(--biru-mid)}
+.k-text a:hover{text-decoration:underline}
+.map-card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+.map-inner{height:170px;background:linear-gradient(135deg,var(--biru-terang),#c8dff5);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.map-inner span{font-size:2.5rem}
+.map-inner p{font-size:.82rem;font-weight:700;color:var(--biru)}
+.map-footer{padding:14px 18px;display:flex;align-items:center;justify-content:center}
+.map-footer a{color:var(--biru-mid);font-weight:700;font-size:.82rem;text-decoration:none;display:flex;align-items:center;gap:6px}
+.map-footer a:hover{text-decoration:underline}
+
+/* ── FOOTER ── */
+footer{background:var(--dark-footer);color:rgba(255,255,255,.65);padding:52px 6% 24px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-logo{font-size:.9rem;font-weight:800;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.footer-logo-box{background:linear-gradient(135deg,#1d9af0,#0a5494);border-radius:8px;padding:4px 8px;font-size:.8rem;color:#fff;font-weight:800}
+.footer-logo img{height:16px;width:auto;display:block}
+.footer-desc{font-size:.82rem;line-height:1.75;margin-bottom:22px}
+.footer-contact{display:flex;flex-direction:column;gap:8px}
+.fc-item{display:flex;align-items:flex-start;gap:10px;font-size:.8rem}
+.fc-item .fi{font-size:.9rem;width:16px;flex-shrink:0;margin-top:1px}
+.footer-col h4{color:#fff;font-size:.82rem;font-weight:800;margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col ul li a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.8rem;transition:.2s}
+.footer-col ul li a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;text-align:center;font-size:.75rem;opacity:.5}
+
+/* ── WA FLOAT ── */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:999;background:#25d366;color:#fff;padding:10px 20px;border-radius:100px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:.84rem;text-decoration:none;box-shadow:0 4px 18px rgba(37,211,102,.4);transition:transform .2s;white-space:nowrap}
+.wa-float:hover{transform:translateY(-2px)}
+
+/* ── FADE UP ── */
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── MOBILE ── */
+@media(max-width:960px){
+  .hero-inner,.apotek-grid,.kontak-grid,.footer-grid{grid-template-columns:1fr}
+  .hero-right,.hero-float{display:none}
+  .hero-stats{justify-content:center}
+  .lay-row.img-left,.lay-row.img-right{grid-template-columns:1fr}
+  .lay-img{min-height:200px;order:-1}
+  .lay-body{padding:28px 28px}
+  .dokter-cards{grid-template-columns:1fr 1fr}
+  .bpjs-steps,.testi-grid{grid-template-columns:1fr}
+  .step-arrow{display:none}
+  .cta-banner{flex-direction:column;text-align:center;padding:40px}
+  .nav-menu{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;padding:12px;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+  .nav-menu.open{display:flex}
+  .hamburger{display:flex}
+}
+@media(max-width:600px){
+  .dokter-cards{grid-template-columns:1fr}
+  .apotek-feats{grid-template-columns:1fr}
+  .bpjs-box{padding:36px 24px}
+  .lay-features{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><img src="Logo Klinik .png" alt="Logo Klinik Dano"></a>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#dokter">Dokter</a></li>
+    <li><a href="#apotek">Apotek</a></li>
+    <li><a href="#testimoni">Testimoni</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+    <li><a href="https://wa.me/628216217971?text=Halo%20Klinik%20Dano%2C%20saya%20ingin%20buat%20janji" target="_blank" class="btn-buat-janji">📞 Buat Janji</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-dot"></span>DOKTER BERPENGALAMAN</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>WAKTU TUNGGU MINIMAL</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>MENERIMA BPJS</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>APOTEK TERPADU</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>BUKA SETIAP HARI</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>DIAGNOSTIK CEPAT</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>KONSULTASI GIGI</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>IV INFUSION THERAPY</span>
+    <!-- duplicate for loop -->
+    <span class="ticker-item"><span class="ticker-dot"></span>DOKTER BERPENGALAMAN</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>WAKTU TUNGGU MINIMAL</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>MENERIMA BPJS</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>APOTEK TERPADU</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>BUKA SETIAP HARI</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>DIAGNOSTIK CEPAT</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>KONSULTASI GIGI</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>IV INFUSION THERAPY</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="beranda">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">Buka Setiap Hari Termasuk Minggu</div>
+      <h1 class="hero-h1">Klinik Kepercayaan<br/>Keluarga <em>Sumedang</em></h1>
+      <p class="hero-desc">Pelayanan medis profesional — konsultasi dokter umum, konsultasi gigi, IV infusion therapy, pemeriksaan diagnostik, dan apotek terpadu. BPJS &amp; umum diterima.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/628216217971?text=Halo%20Klinik%20Dano%2C%20saya%20ingin%20buat%20janji%20dokter" target="_blank" class="btn-aksen">📅 Buat Janji Sekarang</a>
+        <a href="#layanan" class="btn-outline-biru">Lihat Layanan</a>
+      </div>
+      <div class="hero-stats">
+        <div class="h-stat"><div class="num">5</div><div class="lbl">Dokter Umum</div></div>
+        <div class="h-divider"></div>
+        <div class="h-stat"><div class="num">4+</div><div class="lbl">Jenis Layanan</div></div>
+        <div class="h-divider"></div>
+        <div class="h-stat"><div class="num">7×</div><div class="lbl">Buka Seminggu</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-float">
+        <div class="ef">Klinik Kepercayaan</div>
+        <div class="el">Keluarga Sumedang</div>
+      </div>
+      <div class="hero-img-wrap">🏥
+        <div class="hero-img-badge">
+          <div class="icon">⏰</div>
+          <div class="txt"><strong>08.00 – 20.00</strong><span>Buka Setiap Hari</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section id="layanan">
+  <div class="container">
+    <div class="sec-header center fade-up">
+      <div class="sec-label">Layanan Kami</div>
+      <h2 class="sec-title">Pelayanan Kesehatan Terpadu</h2>
+      <p class="sec-sub">Berbagai layanan medis profesional untuk memenuhi kebutuhan kesehatan Anda dan keluarga.</p>
+    </div>
+    <div class="layanan-list">
+
+      <div class="lay-row img-left fade-up">
+        <div class="lay-img">🩺</div>
+        <div class="lay-body">
+          <div class="lay-cat">Konsultasi Dokter Umum</div>
+          <h3>Diagnosis Akurat &amp; Penanganan Cepat</h3>
+          <p>Pemeriksaan menyeluruh oleh dokter berpengalaman untuk berbagai keluhan — dari penyakit ringan hingga kondisi kronis.</p>
+          <ul class="lay-features">
+            <li>Pemeriksaan fisik lengkap</li><li>Penyakit akut &amp; kronis</li>
+            <li>Surat keterangan sehat</li><li>Layanan BPJS &amp; umum</li>
+          </ul>
+          <a href="https://wa.me/628216217971?text=Halo,%20saya%20ingin%20konsultasi%20dokter%20umum" target="_blank" class="lay-link">💬 Tanya tentang Konsultasi Dokter Umum →</a>
+        </div>
+      </div>
+
+      <div class="lay-row img-right fade-up">
+        <div class="lay-body">
+          <div class="lay-cat">Terapi Cairan</div>
+          <h3>Cepat Pulih, Langsung Bertenaga</h3>
+          <p>Cairan, vitamin, dan nutrisi dimasukkan langsung ke aliran darah lewat infus — jauh lebih cepat diserap dibanding minum obat.</p>
+          <ul class="lay-features">
+            <li>Badan lemas &amp; kelelahan</li><li>Demam tinggi &amp; muntaber</li>
+            <li>Kekurangan cairan (dehidrasi)</li><li>Boost vitamin &amp; imunitas</li>
+          </ul>
+          <a href="https://wa.me/628216217971?text=Halo,%20saya%20ingin%20tanya%20tentang%20terapi%20infus" target="_blank" class="lay-link">💬 Tanya tentang Terapi Cairan →</a>
+        </div>
+        <div class="lay-img green">💧</div>
+      </div>
+
+      <div class="lay-row img-left fade-up">
+        <div class="lay-img amber">🦷</div>
+        <div class="lay-body">
+          <div class="lay-cat">Konsultasi Dokter Gigi</div>
+          <h3>Senyum Sehat, Gigi Terawat</h3>
+          <p>Konsultasi dan perawatan gigi umum oleh dokter gigi berpengalaman — mulai dari pemeriksaan rutin hingga penanganan masalah gigi dan mulut secara menyeluruh.</p>
+          <ul class="lay-features">
+            <li>Pemeriksaan &amp; konsultasi gigi</li><li>Tambal gigi &amp; cabut gigi</li>
+            <li>Scaling (pembersihan karang gigi)</li><li>Penanganan gigi berlubang</li>
+          </ul>
+          <a href="https://wa.me/628216217971?text=Halo,%20saya%20ingin%20tanya%20tentang%20konsultasi%20gigi" target="_blank" class="lay-link">💬 Tanya tentang Konsultasi Gigi →</a>
+        </div>
+      </div>
+
+      <div class="lay-row img-right fade-up">
+        <div class="lay-body">
+          <div class="lay-cat">Pemeriksaan Diagnostik</div>
+          <h3>Hasil Cepat, Data Akurat</h3>
+          <p>Pemeriksaan laboratorium dasar dengan alat modern. Hasilnya cepat, akurat, dan langsung dikonsultasikan dengan dokter.</p>
+          <ul class="lay-features">
+            <li>Cek darah lengkap</li><li>Gula darah &amp; HbA1c</li>
+            <li>Kolesterol &amp; asam urat</li><li>Fungsi ginjal &amp; hati</li>
+          </ul>
+          <a href="https://wa.me/628216217971?text=Halo,%20saya%20ingin%20tanya%20tentang%20pemeriksaan%20laboratorium" target="_blank" class="lay-link">💬 Tanya tentang Pemeriksaan Diagnostik →</a>
+        </div>
+        <div class="lay-img purple">🔬</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOKTER -->
+<section id="dokter">
+  <div class="container">
+    <div class="sec-header center fade-up">
+      <div class="sec-label">Tim Medis</div>
+      <h2 class="sec-title">Dokter Klinik Dano</h2>
+      <p class="sec-sub">Ditangani oleh dokter-dokter berpengalaman dan berdedikasi untuk memberikan pelayanan terbaik.</p>
+    </div>
+    <div class="dokter-cards fade-up">
+      <div class="dokter-card">
+        <div class="dk-head">
+          <div class="dk-avatar">AJ</div>
+          <div class="dk-info"><h3>dr. Alam Jaya Kusumoaji</h3><span class="dk-role">🩺 Dokter Umum</span></div>
+        </div>
+        <div class="dk-meta">
+          <div class="dk-meta-item"><span class="mi">📅</span> Senin – Sabtu</div>
+          <div class="dk-meta-item"><span class="mi">⏰</span> 08.00–12.00 &amp; 13.00–20.00</div>
+        </div>
+        <div class="dk-tags"><span class="dk-tag">Berpengalaman</span><span class="dk-tag"> Sabar</span></div>
+      </div>
+      <div class="dokter-card">
+        <div class="dk-head">
+          <div class="dk-avatar">HN</div>
+          <div class="dk-info"><h3>dr. Halim Nurrachman W.</h3><span class="dk-role">🩺 Dokter Umum</span></div>
+        </div>
+        <div class="dk-meta">
+          <div class="dk-meta-item"><span class="mi">📅</span> Senin, Selasa, Rabu</div>
+          <div class="dk-meta-item"><span class="mi">⏰</span> 08.00–13.00</div>
+        </div>
+        <div class="dk-tags"><span class="dk-tag">Profesional</span><span class="dk-tag">Komunikatif</span></div>
+      </div>
+      <div class="dokter-card">
+        <div class="dk-head">
+          <div class="dk-avatar">SS</div>
+          <div class="dk-info"><h3>dr. Sawwawa Salsabila S.</h3><span class="dk-role">🩺 Dokter Umum</span></div>
+        </div>
+        <div class="dk-meta">
+          <div class="dk-meta-item"><span class="mi">📅</span> Kamis &amp; Jumat</div>
+          <div class="dk-meta-item"><span class="mi">⏰</span> 08.00–12.00</div>
+        </div>
+        <div class="dk-tags"><span class="dk-tag">Ramah</span><span class="dk-tag">Komunikatif</span></div>
+      </div>
+      <div class="dokter-card">
+        <div class="dk-head">
+          <div class="dk-avatar">IK</div>
+          <div class="dk-info"><h3>dr. Hj. Ilis Komala Dewi</h3><span class="dk-role">🩺 Dokter Umum</span></div>
+        </div>
+        <div class="dk-meta">
+          <div class="dk-meta-item"><span class="mi">📅</span> Kamis &amp; Minggu</div>
+          <div class="dk-meta-item"><span class="mi">⏰</span> 13.00–20.00</div>
+        </div>
+        <div class="dk-tags"><span class="dk-tag">5+ Thn Pengalaman</span><span class="dk-tag">Terpercaya</span></div>
+      </div>
+      <div class="dokter-card">
+        <div class="dk-head">
+          <div class="dk-avatar">AH</div>
+          <div class="dk-info"><h3>dr. Hj. Anna Hernawati S., MKM</h3><span class="dk-role">🩺 Dokter Umum</span></div>
+        </div>
+        <div class="dk-meta">
+          <div class="dk-meta-item"><span class="mi">📅</span> Jumat</div>
+          <div class="dk-meta-item"><span class="mi">⏰</span> 08.00–12.00</div>
+        </div>
+        <div class="dk-tags"><span class="dk-tag">Magister Kesehatan</span><span class="dk-tag">Ahli</span></div>
+      </div>
+    </div>
+
+    <div class="jadwal-wrap fade-up">
+      <h3>📅 Jadwal Praktik Lengkap</h3>
+      <table>
+        <thead><tr><th>Hari</th><th>Jam</th><th>Dokter</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="3">Senin</td><td>08.00 – 12.00</td><td><span class="badge-d">dr. Alam Jaya Kusumoaji</span></td></tr>
+          <tr><td>08.00 – 12.00</td><td><span class="badge-d">dr. Halim Nurrachman Wijayasomantri</span></td></tr>
+          <tr><td>13.00 – 20.00</td><td><span class="badge-d">dr. Alam Jaya Kusumoaji</span></td></tr>
+          <tr><td rowspan="3">Selasa</td><td>08.00 – 12.00</td><td><span class="badge-d">dr. Alam Jaya Kusumoaji</span></td></tr>
+          <tr><td>12.00 – 13.00</td><td><span class="badge-d">dr. Halim Nurrachman Wijayasomantri</span></td></tr>
+          <tr><td>13.00 – 20.00</td><td><span class="badge-d">dr. Alam Jaya Kusumoaji</span></td></tr>
+          <tr><td rowspan="3">Rabu</td><td>08.00 – 12.00</td><td><span class="badge-d">dr. Alam Jaya Kusumoaji</span></td></tr>
+          <tr><td>12.00 – 13.00</td><td><span class="badge-d">dr. Halim Nurrachman Wijayasomantri</span></td></tr>
+          <tr><td>13.00 – 20.00</td><td><span class="badge-d">dr. Alam Jaya Kusumoaji</span></td></tr>
+          <tr><td rowspan="3">Kamis</td><td>08.00 – 12.00</td><td><span class="badge-d">dr. Alam Jaya Kusumoaji</span></td></tr>
+          <tr><td>08.00 – 12.00</td><td><span class="badge-d">dr. Sawwawa Salsabila Sukmara</span></td></tr>
+          <tr><td>13.00 – 20.00</td><td><span class="badge-d">dr. Hj. Ilis Komala Dewi</span></td></tr>
+          <tr><td rowspan="3">Jumat</td><td>08.00 – 12.00</td><td><span class="badge-d">dr. Hj. Anna Hernawati Sabana, MKM</span></td></tr>
+          <tr><td>08.00 – 12.00</td><td><span class="badge-d">dr. Sawwawa Salsabila Sukmara</span></td></tr>
+          <tr><td>13.00 – 20.00</td><td><span class="badge-d">dr. Hj. Lilis Komala Dewi</span></td></tr>
+          <tr><td>Sabtu</td><td>08.00 – 20.00</td><td><span class="badge-d">dr. Alam Jaya Kusumoaji</span></td></tr>
+          <tr><td>Minggu</td><td>08.00 – 20.00</td><td><span class="badge-d">dr. Hj. Ilis Komala Dewi</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- BPJS STEPS -->
+<section id="bpjs" style="padding:0 6% 90px">
+  <div class="container">
+    <div class="bpjs-box fade-up">
+      <div class="sec-label">Untuk Pasien BPJS</div>
+      <h2 class="sec-title">Proses BPJS Cepat &amp; Mudah</h2>
+      <p class="bpjs-sub">Tidak perlu bingung. Hanya 3 langkah untuk mendapatkan pelayanan BPJS terbaik.</p>
+      <div class="bpjs-steps">
+        <div class="bpjs-step">
+          <div class="step-top">
+            <div class="step-icon">💬</div>
+            <span class="step-num">01</span>
+          </div>
+          <h4>Daftar via WhatsApp</h4>
+          <p>Kirim pesan ke WhatsApp kami, sebutkan nama, nomor BPJS, dan keluhan Anda.</p>
+          <span class="step-arrow">›</span>
+        </div>
+        <div class="bpjs-step">
+          <div class="step-top">
+            <div class="step-icon">📋</div>
+            <span class="step-num">02</span>
+          </div>
+          <h4>Check-in Cepat</h4>
+          <p>Datang ke klinik, tunjukkan kartu BPJS. Tim kami akan proses registrasi dengan cepat.</p>
+          <span class="step-arrow">›</span>
+        </div>
+        <div class="bpjs-step">
+          <div class="step-top">
+            <div class="step-icon">🩺</div>
+            <span class="step-num">03</span>
+          </div>
+          <h4>Konsultasi Dokter</h4>
+          <p>Langsung ditangani dokter berpengalaman. Obat bisa ditebus di apotek klinik.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner fade-up">
+  <div class="cta-text">
+    <div class="cta-mini">Slot terbatas hari ini</div>
+    <h2>Jangan Tunda Kesehatan Anda</h2>
+    <p>Respon dalam 5 menit. Buat janji sekarang dan rasakan pelayanan terbaik untuk Anda dan keluarga.</p>
+  </div>
+  <a href="https://wa.me/628216217971?text=Halo%20Klinik%20Dano%2C%20saya%20ingin%20chat%20sekarang" target="_blank" class="btn-aksen" style="white-space:nowrap;flex-shrink:0">💬 Chat WhatsApp Sekarang</a>
+</div>
+
+<!-- APOTEK -->
+<section id="apotek">
+  <div class="container">
+    <div class="apotek-grid">
+      <div class="apotek-img fade-up">
+        💊
+        <div class="apotek-jam-badge">
+          <p>Jam Apotek</p>
+          <strong>08.00 – 21.00 WIB</strong>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="sec-label">Apotek Terpadu</div>
+        <h2 class="sec-title">Obat Lengkap, Harga Terjangkau</h2>
+        <p style="color:var(--teks-muda);font-size:.92rem;line-height:1.75;margin-bottom:4px">Apotek di dalam klinik melayani obat resep dan obat bebas, dilayani apoteker profesional dengan harga terjangkau.</p>
+        <div class="apotek-feats">
+          <div class="apo-feat">
+            <div class="apo-icon">🏷️</div>
+            <div class="apo-text"><h4>Obat Generik &amp; Branded</h4><p>Stok lengkap disesuaikan dengan resep dokter klinik.</p></div>
+          </div>
+          <div class="apo-feat">
+            <div class="apo-icon">👩‍⚕️</div>
+            <div class="apo-text"><h4>Apoteker Profesional</h4><p>Informasi obat, dosis, dan cara pakai yang tepat.</p></div>
+          </div>
+          <div class="apo-feat">
+            <div class="apo-icon">🔄</div>
+            <div class="apo-text"><h4>Terintegrasi Klinik</h4><p>Resep langsung ditebus — cepat dan efisien.</p></div>
+          </div>
+          <div class="apo-feat">
+            <div class="apo-icon">💳</div>
+            <div class="apo-text"><h4>Tunai, Transfer &amp; QRIS</h4><p>Berbagai metode pembayaran tersedia.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni">
+  <div class="container">
+    <div class="sec-header center fade-up">
+      <div class="sec-label">Testimoni</div>
+      <h2 class="sec-title">Dipercaya Ribuan Pasien</h2>
+      <p class="sec-sub">Apa kata pasien kami tentang pengalaman berobat di Klinik Dano Sumedang.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <p>Pelayanannya cepat, dokternya ramah, proses BPJS-nya sangat mudah. Saya dan keluarga selalu berobat di sini.</p>
+        <div class="testi-footer">
+          <div class="testi-author"><strong>Ibu Siti Nurhaliza</strong><span>Pasien BPJS</span></div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <p>Saya coba IV Infusion Therapy di sini dan hasilnya sangat terasa. Stamina langsung pulih setelah sakit. Highly recommended!</p>
+        <div class="testi-footer">
+          <div class="testi-author"><strong>Bapak Rizki Ananda</strong><span>Pasien Umum</span></div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <p>Pelayanan dari karyawan dan dokternya sangat bagus, tempatnya sangat bersih dan nyaman. </p>
+        <div class="testi-footer">
+          <div class="testi-author"><strong>Ibu Dewi Kartika</strong><span>Pasien BPJS</span></div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <p>Bekam medik di Klinik Dano sangat profesional. Alatnya steril sekali pakai. Nyeri punggung saya langsung berkurang.</p>
+        <div class="testi-footer">
+          <div class="testi-author"><strong>Bapak Ahmad Fauzan</strong><span>Pasien Umum</span></div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <p>Klinik terbaik di Sumedang, pelayanannya sangat profesional dengan tenaga medis berpengalaman.</p>
+        <div class="testi-footer">
+          <div class="testi-author"><strong>Bapak Haris Darmawan</strong><span>Pasien BPJS</span></div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <p>Klinik modern, bersih, dan nyaman. Respon WhatsApp-nya cepat dalam 5 menit sudah dijawab. Pelayanan terbaik di Sumedang.</p>
+        <div class="testi-footer">
+          <div class="testi-author"><strong>Bapak Dedi Supriadi</strong><span>Pasien Umum</span></div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIAP CTA -->
+<section id="siap">
+  <h2>Siap Merasa Lebih Baik?</h2>
+  <p>Jadwalkan konsultasi Anda sekarang. Tim kami siap membantu dalam 5 menit.</p>
+  <a href="https://wa.me/628216217971?text=Halo%20Klinik%20Dano%2C%20saya%20ingin%20buat%20janji" target="_blank" class="btn-aksen-lg">💬 Chat WhatsApp Sekarang</a>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="container">
+    <div class="sec-header fade-up">
+      <div class="sec-label">Hubungi Kami</div>
+      <h2 class="sec-title">Buat Janji atau Tanya Lebih Lanjut</h2>
+      <p class="sec-sub">Isi formulir singkat di bawah dan tim kami akan menghubungi Anda via WhatsApp.</p>
+    </div>
+    <div class="kontak-grid">
+      <div class="kontak-form-box fade-up">
+        <h3>📋 Formulir Booking</h3>
+        <div class="fg"><label>Nama Lengkap</label><input type="text" id="nama" placeholder="Masukkan nama lengkap"/></div>
+        <div class="fg"><label>Nomor WhatsApp</label><input type="tel" id="wa" placeholder="08xx-xxxx-xxxx"/></div>
+        <div class="fg">
+          <label>Layanan yang Diinginkan</label>
+          <select id="layanan">
+            <option value="">-- Pilih Layanan --</option>
+            <option>Konsultasi Dokter Umum (BPJS)</option>
+            <option>Konsultasi Dokter Umum (Umum)</option>
+            <option>Konsultasi Dokter Gigi</option>
+            <option>IV Infusion Therapy</option>
+            <option>Pemeriksaan Diagnostik / Lab</option>
+            <option>Apotek / Pembelian Obat</option>
+          </select>
+        </div>
+        <div class="fg"><label>Keluhan / Pesan</label><textarea id="pesan" placeholder="Ceritakan keluhan atau pertanyaan Anda"></textarea></div>
+        <button class="btn-submit" onclick="kirimBooking()">💬 Kirim &amp; Chat via WhatsApp</button>
+        <p class="kontak-note">Respon dalam 5 menit selama jam operasional</p>
+      </div>
+      <div class="kontak-info fade-up">
+        <div class="k-card">
+          <div class="k-icon">📍</div>
+          <div class="k-text"><h4>Alamat Klinik</h4><p>Jl. Prabu Taji Malela No.C-28<br/>Kotakaler, Kec. Sumedang Utara<br/>Kab. Sumedang, Jawa Barat 45621</p></div>
+        </div>
+        <div class="k-card">
+          <div class="k-icon">📞</div>
+          <div class="k-text"><h4>WhatsApp / Telepon</h4><p><a href="https://wa.me/628216217971" target="_blank">+62 821-6217-971</a></p></div>
+        </div>
+        <div class="k-card">
+          <div class="k-icon">⏰</div>
+          <div class="k-text"><h4>Jam Operasional</h4><p>Senin – Minggu: 08.00 – 20.00 WIB<br/><span style="font-size:.8rem;color:var(--teks-muda);font-weight:600">Apotek: 08.00 – 21.00 WIB</span></p></div>
+        </div>
+        <div class="map-card">
+          <div class="map-inner">
+            <span>🗺️</span>
+            <p>Klinik Dano Sumedang</p>
+          </div>
+          <div class="map-footer">
+            <a href="https://maps.google.com/?q=Jl.+Prabu+Taji+Malela+No.C-28+Sumedang+Utara" target="_blank">📍 Buka di Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="Logo Klinik .png" alt="Logo Klinik Dano"> Klinik Dano Sumedang</div>
+        <p class="footer-desc">Klinik pratama dengan pelayanan lengkap — konsultasi dokter umum, konsultasi gigi, terapi infus, diagnostik, dan apotek terpadu. Melayani pasien BPJS dan umum.</p>
+        <div class="footer-contact">
+          <div class="fc-item"><span class="fi">📍</span><span>Jl. Prabu Taji Malela No.C-28, Sumedang</span></div>
+          <div class="fc-item"><span class="fi">📞</span><span>+62 821-6217-971</span></div>
+          <div class="fc-item"><span class="fi">⏰</span><span>Setiap Hari 08.00 – 20.00</span></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#layanan">Konsultasi Dokter</a></li>
+          <li><a href="#layanan">Konsultasi Dokter Gigi</a></li>
+          <li><a href="#layanan">IV Infusion Therapy</a></li>
+          <li><a href="#layanan">Pemeriksaan Diagnostik</a></li>
+          <li><a href="#apotek">Apotek</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="#dokter">Jadwal Dokter</a></li>
+          <li><a href="#testimoni">Testimoni Pasien</a></li>
+          <li><a href="#kontak">Booking Online</a></li>
+          <li><a href="https://wa.me/628216217971" target="_blank">Chat WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Klinik Dano Sumedang. Hak Cipta Dilindungi.</div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/628216217971?text=Halo%20Klinik%20Dano%2C%20saya%20ingin%20bertanya" target="_blank">💬 Chat WhatsApp</a>
+
+<script>
+function toggleNav(){document.getElementById('navMenu').classList.toggle('open')}
+document.querySelectorAll('.nav-menu a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('navMenu').classList.remove('open'))});
+// Active nav on scroll
+const secs=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id});
+  document.querySelectorAll('.nav-menu a[href^="#"]').forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+cur)a.classList.add('active')});
+});
+// Fade up
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target)}});
+},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+// Booking
+function kirimBooking(){
+  const nama=document.getElementById('nama').value.trim();
+  const wa=document.getElementById('wa').value.trim();
+  const layanan=document.getElementById('layanan').value;
+  const pesan=document.getElementById('pesan').value.trim();
+  if(!nama||!wa||!layanan){alert('Mohon lengkapi nama, nomor WA, dan layanan yang dipilih.');return;}
+  const teks=`Halo Klinik Dano 👋\n\nSaya ingin booking:\n\n👤 *Nama:* ${nama}\n📱 *WA:* ${wa}\n🏥 *Layanan:* ${layanan}\n📝 *Keluhan:* ${pesan||'-'}\n\nMohon konfirmasi jadwalnya. Terima kasih 🙏`;
+  window.open(`https://wa.me/628216217971?text=${encodeURIComponent(teks)}`,'_blank');
+}
+</script>
+</body>
+</html>
